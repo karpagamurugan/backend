@@ -55,13 +55,15 @@ const login = async (req, res) => {
                 Mail: result.Mail,
                 Id: result.UserId,
             }, 'secretKey1999', { expiresIn: 120 * 60 * 96 })
-            res.send({
-                message: {
-                    UserName: result.UserName,
-                    Id: result.UserId,
-                    token: token
+            res.send(
+                {
+                    message: {
+                        UserName: result.UserName,
+                        id: result._id,
+                        token: token
+                    }
                 }
-            })
+            )
         }
     })
 }
